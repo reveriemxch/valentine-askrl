@@ -43,7 +43,7 @@ body {
 .letter-window{
     width: 90vw;
     max-width: 800px;
-    aspect-ratio: 3/2;
+    max-height: 90vh;
     padding: 180px 20px 0 20px;
     display: flex;
     flex-direction: column;
@@ -128,7 +128,7 @@ p {
     padding: 30px;
     border-radius: 10px;
     max-width: 600px;
-    max-height: 60vh;
+    max-height: 80vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -195,4 +195,3 @@ display: inline-block;
     background-color: rgba(255,240,240,0.5);
     border-radius: 12px;
 }
-
