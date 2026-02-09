@@ -136,6 +136,22 @@ p {
     animation: slideIn 0.3s ease;
 }
 
+/* Larger centered modal (not fullscreen) */
+.letter-display.large {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(96vw, 1000px);
+    max-width: 1000px;
+    max-height: 92vh;
+    padding: 28px;
+    border-radius: 14px;
+    z-index: 1200;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    background-color: rgba(255,255,255,0.98);
+}
+
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -194,4 +210,32 @@ display: inline-block;
     padding: 10px 20px;
     background-color: rgba(255,240,240,0.5);
     border-radius: 12px;
+}
+
+/* Fullscreen letter styles */
+.letter-display.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    max-height: none;
+    border-radius: 0;
+    padding: 28px;
+    box-sizing: border-box;
+    z-index: 1200;
+    overflow-y: auto;
+    background-color: rgba(255,255,255,0.98);
+}
+
+.view-letter-btn.fullscreen {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 1210;
+    transform: none;
+}
+
+.letter-display.fullscreen .letter-content {
+    font-size: 18px;
 }
