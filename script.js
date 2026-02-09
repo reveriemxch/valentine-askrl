@@ -24,9 +24,13 @@ envelope.addEventListener("click", () => {
 
 noBtn.addEventListener("mouseover", () => {
     const min = 200;
-    const max = 200;
+    const max = 300;
 
     const distance = Math.random() * (max - min) + min;
+    // = Math.random() * (200 - 200) + 200
+    // = Math.random() * 0 + 200
+    // = 200 (always)
+
     const angle = Math.random() * Math.PI * 2;
 
     const moveX = Math.cos(angle) * distance;
@@ -69,4 +73,20 @@ yesBtn.addEventListener("click", () => {
     buttons.style.display = "none";
 
     finalText.style.display = "block";
+
+    document.getElementById("letter-section").style.display = "flex";
+});
+
+// View Letter button
+const viewLetterBtn = document.getElementById("view-letter-btn");
+const letterDisplay = document.getElementById("letter-display");
+
+viewLetterBtn.addEventListener("click", () => {
+    if (letterDisplay.style.display === "none" || letterDisplay.style.display === "") {
+        letterDisplay.style.display = "block";
+        viewLetterBtn.textContent = "Close Letter ✕";
+    } else {
+        letterDisplay.style.display = "none";
+        viewLetterBtn.textContent = "View Letter ♡";
+    }
 });
