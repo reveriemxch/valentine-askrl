@@ -33,7 +33,7 @@ body {
 }
 
 #letter-container{
-    display: none;
+    display: flex;
     position:fixed;
     inset: 0;
     justify-content: center;
@@ -44,7 +44,7 @@ body {
     width: 90vw;
     max-width: 800px;
     aspect-ratio: 3/2;
-    padding: 20px 20px 0 20px;
+    padding: 180px 20px 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,7 +56,7 @@ body {
     background-position: center;
     border-radius: 12px;
     gap: 1px;
-    padding-top: 180px;
+    padding-top: 180px;  // This overwrites the padding above
 
     transform: scale(1.2);
     opacity: 0;
@@ -97,7 +97,53 @@ p {
     position: relative;
 }
 
-.no-wrapper{
+.no-wrapper {
+}
+
+/* Letter Section */
+#letter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.view-letter-btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-family: "Pixelify Sans", sans-serif;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.view-letter-btn:hover {
+    transform: scale(1.1);
+    background-color: #ff1493;
+}
+
+.letter-display {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    line-height: 1.8;
+}
+
+.letter-content {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    font-family: "Aldrich", sans-serif;
+}
+
+.no-wrapper {
     position:relative;
 }
 
