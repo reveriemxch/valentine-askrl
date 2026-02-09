@@ -87,10 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
             if (letterDisplay.style.display === "none" || letterDisplay.style.display === "") {
                 letterDisplay.style.display = "block";
                 viewLetterBtn.textContent = "Close Letter ✕";
+                // make the letter-display focusable and focus it so scroll works immediately
+                letterDisplay.tabIndex = 0;
+                letterDisplay.focus();
+                // ensure scroll position starts at top
+                letterDisplay.scrollTop = 0;
             } else {
                 letterDisplay.style.display = "none";
                 viewLetterBtn.textContent = "View Letter ♡";
+                letterDisplay.blur && letterDisplay.blur();
             }
         });
     }
 });
+
