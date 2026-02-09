@@ -86,16 +86,19 @@ document.addEventListener("DOMContentLoaded", () => {
         viewLetterBtn.addEventListener("click", () => {
             if (letterDisplay.style.display === "none" || letterDisplay.style.display === "") {
                 letterDisplay.style.display = "block";
+                letterDisplay.classList.add('large');
                 viewLetterBtn.textContent = "Close Letter ✕";
-                // make the letter-display focusable and focus it so scroll works immediately
-                letterDisplay.tabIndex = 0;
+                // focus the letter display so keyboard scrolling works
+                letterDisplay.tabIndex = -1;
                 letterDisplay.focus();
-                // ensure scroll position starts at top
+                // start at top
                 letterDisplay.scrollTop = 0;
             } else {
-                letterDisplay.style.display = "none";
+                letterDisplay.classList.remove('large');
+                // small delay to allow potential animation before hiding
                 viewLetterBtn.textContent = "View Letter ♡";
                 letterDisplay.blur && letterDisplay.blur();
+                setTimeout(() => { letterDisplay.style.display = "none"; }, 120);
             }
         });
     }
