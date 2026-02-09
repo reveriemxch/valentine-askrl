@@ -43,8 +43,8 @@ body {
 .letter-window{
     width: 90vw;
     max-width: 800px;
-    max-height: 90vh;
-    padding: 180px 20px 0 20px;
+    max-height: 100vh;
+    padding: 160px 12px 0 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,10 +125,10 @@ p {
 
 .letter-display {
     background-color: rgba(255, 255, 255, 0.95);
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
-    max-width: 600px;
-    max-height: 80vh;
+    width: min(90vw, 600px);
+    max-height: 95vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
