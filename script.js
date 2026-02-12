@@ -78,46 +78,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
- // View Letter button logic
-const viewLetterBtn = document.getElementById("view-letter-btn");
-const letterDisplay = document.getElementById("letter-display");
+    // View Letter button
+    const viewLetterBtn = document.getElementById("view-letter-btn");
+    const letterDisplay = document.getElementById("letter-display");
 
-if (viewLetterBtn) {
-    viewLetterBtn.addEventListener("click", () => {
-        // Check visibility based on the class instead of display style for better reliability
-        const isOpening = !letterDisplay.classList.contains('large');
-
-        if (isOpening) {
-            // --- OPENING LOGIC ---
-            letterDisplay.style.display = "block"; 
-            
-            // Allow a frame for display:block to register
-            requestAnimationFrame(() => {
+    if (viewLetterBtn) {
+        viewLetterBtn.addEventListener("click", () => {
+            if (letterDisplay.style.display === "none" || letterDisplay.style.display === "") {
+                letterDisplay.style.display = "block";
                 letterDisplay.classList.add('large');
-                // Use inline styles to ensure they beat any conflicting CSS
-                letterDisplay.style.opacity = "1";
-                letterDisplay.style.transform = "translate(-50%, -50%) scale(1)";
-            });
+                viewLetterBtn.textContent = "Close Letter ✕";
+                // focus the letter display so keyboard scrolling works
+                letterDisplay.tabIndex = -1;
+                letterDisplay.focus();
+                // start at top
+                letterDisplay.scrollTop = 0;
+            } else {
+                letterDisplay.classList.remove('large');
+                // small delay to allow potential animation before hiding
+                viewLetterBtn.textContent = "View Letter ♡";
+                letterDisplay.blur && letterDisplay.blur();
+                setTimeout(() => { letterDisplay.style.display = "none"; }, 120);
+            }
+        });
+    }
+});
 
-            viewLetterBtn.textContent = "Close Letter ✕";
-            letterDisplay.tabIndex = -1;
-            letterDisplay.focus();
-            letterDisplay.scrollTop = 0;
-        } else {
-            // --- CLOSING LOGIC ---
-            letterDisplay.classList.remove('large');
-            letterDisplay.style.opacity = "0";
-            letterDisplay.style.transform = "translate(-50%, -50%) scale(0.8)";
-            
-            viewLetterBtn.textContent = "View Letter ♡";
-
-            // Wait for the 300ms transition defined in your CSS
-            setTimeout(() => {
-                // Only hide if the user hasn't tried to reopen it during the animation
-                if (!letterDisplay.classList.contains('large')) {
-                    letterDisplay.style.display = "none";
-                }
-            }, 300); 
-        }
-    });
-}
