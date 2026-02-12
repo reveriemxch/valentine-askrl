@@ -44,7 +44,7 @@ body {
     width: 90vw;
     max-width: 800px;
     max-height: 100vh;
-    padding: 180px 20px 0 20px; 
+    padding: 180px 20px 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -109,7 +109,7 @@ p {
     padding: 12px 30px;
     font-size: 18px;
     font-family: "Pixelify Sans", sans-serif;
-    background-color: #ff69b4;
+    background-color: #ff699e;
     color: white;
     border: none;
     border-radius: 8px;
@@ -120,7 +120,7 @@ p {
 
 .view-letter-btn:hover {
     transform: scale(1.1);
-    background-color: #ff1493;
+    background-color: #ff1453;
 }
 
 .letter-display {
